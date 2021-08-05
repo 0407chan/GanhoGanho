@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css'
 import React from 'react'
 import MainContainer from './containers/MainContainer'
 
