@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "ganho-ganho",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "@types/react-dom": "^17.0.0",
     "antd": "^4.16.10",
     "craco-alias": "^3.0.1",
+    "date-fns": "^2.23.0",
     "env-cmd": "^10.1.0",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
