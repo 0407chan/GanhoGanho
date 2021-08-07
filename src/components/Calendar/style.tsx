@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   align-items: center;
@@ -11,8 +10,9 @@ export const Container = styled.div`
 `
 
 export const CalendarHeader = styled.div`
-  display: grid;
-  height: 100%;
+  display: flex;
+  min-height: 50px;
+  max-height: 50px;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -26,13 +26,20 @@ export const CalendarHeader = styled.div`
   }
 `
 
-export const CalendarBlock = styled.div`
+export const WeekWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+`
+
+export const DayBlock = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
   justify-content: center;
   border: 1px solid #707485;
-
+  background-color: #53545c;
   .block-label {
     font-weight: bold;
     font-size: 16px;
@@ -43,7 +50,10 @@ export const CalendarBlock = styled.div`
   &.saturday {
     color: #7091ff;
   }
+  &.today {
+    background-color: #759475;
+  }
   &:hover {
-    background-color: #626574;
+    filter: brightness(1.1);
   }
 `
