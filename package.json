@@ -9,6 +9,7 @@
     "test": "BROWSER=none react-scripts test"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^5.9.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

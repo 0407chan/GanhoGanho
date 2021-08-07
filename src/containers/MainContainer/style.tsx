@@ -1,3 +1,4 @@
+import Button from 'antd/lib/button'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -27,6 +28,7 @@ export const HeaderLeft = styled.div`
 `
 export const HeaderCenter = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -39,6 +41,9 @@ export const HeaderCenter = styled.div`
     background-color: #666871;
   }
 `
+
+export const CalendarButton = styled(Button)``
+
 export const HeaderRight = styled.div`
   display: flex;
   justify-content: center;
