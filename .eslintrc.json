@@ -32,14 +32,19 @@
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": ["error"],
         "@typescript-eslint/no-use-before-define": ["error"],
-        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "off",
+        
+        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+        "react/no-array-index-key":"off",
+        "react/prop-types": "off",
+
         "import/newline-after-import": "off",
         "import/prefer-default-export": "off",
         "import/no-extraneous-dependencies": ["error", {"devDependencies": false}],
         "import/no-duplicates" :"off",
-        "react/prop-types": "off",
+        
         "max-len": ["warn", { "code": 80 }],
         "object-curly-newline": [
             "error",
