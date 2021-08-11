@@ -32,10 +32,10 @@
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": ["error"],
         "@typescript-eslint/no-use-before-define": ["error"],
-
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "off",
         
+        "react/jsx-props-no-spreading":"off",
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
         "react/no-array-index-key":"off",
         "react/prop-types": "off",

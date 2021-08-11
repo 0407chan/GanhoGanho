@@ -4,45 +4,16 @@ import * as S from './style'
 import UserBlock from './UserBlock'
 
 type EditorProps = {
-  currentUser: User
-  setCurrentUser: React.Dispatch<React.SetStateAction<User>>
+  userList: User[]
+  currentUser: User | undefined
+  setCurrentUser: React.Dispatch<React.SetStateAction<User | undefined>>
 }
 
-const SideManage: React.FC<EditorProps> = ({ currentUser, setCurrentUser }) => {
-  const userList: User[] = [
-    {
-      name: '피카츄',
-      offDate: []
-    },
-    {
-      name: '라이츄',
-      offDate: []
-    },
-    {
-      name: '파이리',
-      offDate: []
-    },
-    {
-      name: '꼬부기',
-      offDate: []
-    },
-    {
-      name: '버터플',
-      offDate: []
-    },
-    {
-      name: '야도란',
-      offDate: []
-    },
-    {
-      name: '피죤투',
-      offDate: []
-    },
-    {
-      name: '또가스',
-      offDate: []
-    }
-  ]
+const SideManage: React.FC<EditorProps> = ({
+  userList,
+  currentUser,
+  setCurrentUser
+}) => {
   return (
     <S.Container>
       <S.UserBlockWrapper>
@@ -54,7 +25,7 @@ const SideManage: React.FC<EditorProps> = ({ currentUser, setCurrentUser }) => {
               onClick={() => {
                 setCurrentUser(user)
               }}
-              isCurrentUser={currentUser.name === user.name}
+              isCurrentUser={currentUser?.name === user.name}
             />
           )
         })}
