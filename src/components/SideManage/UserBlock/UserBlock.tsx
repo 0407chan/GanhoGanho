@@ -1,27 +1,6 @@
 import { User } from '@/containers/MainContainer/MainContainer'
 import React from 'react'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  background-color: #b6b6b66c;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px;
-  transition: filter 0.2s ease;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(1.6);
-  }
-
-  &.current-user {
-    background-color: #e9e9e9ca;
-    filter: unset;
-  }
-`
-
+import * as S from './style'
 type UserBlockProps = {
   user: User
   isCurrentUser: boolean
@@ -33,12 +12,19 @@ const UserBlock: React.FC<UserBlockProps> = ({
   onClick
 }) => {
   return (
-    <Container
+    <S.Container
       className={isCurrentUser ? 'current-user' : ''}
       onClick={onClick}
     >
-      {user.name}
-    </Container>
+      <S.Horizontal>
+        <div>{user.name}</div>
+        <S.OffDateWrapper>
+          {user.offDate.map(() => {
+            return <S.OffDate />
+          })}
+        </S.OffDateWrapper>
+      </S.Horizontal>
+    </S.Container>
   )
 }
 
