@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/ganho-ganho/static/css/main.383eb4ad.chunk.css",
-    "main.js": "/ganho-ganho/static/js/main.7470db92.chunk.js",
-    "main.js.map": "/ganho-ganho/static/js/main.7470db92.chunk.js.map",
-    "runtime-main.js": "/ganho-ganho/static/js/runtime-main.b651d20d.js",
-    "runtime-main.js.map": "/ganho-ganho/static/js/runtime-main.b651d20d.js.map",
-    "static/css/2.630ef54a.chunk.css": "/ganho-ganho/static/css/2.630ef54a.chunk.css",
-    "static/js/2.3ef737bd.chunk.js": "/ganho-ganho/static/js/2.3ef737bd.chunk.js",
-    "static/js/2.3ef737bd.chunk.js.map": "/ganho-ganho/static/js/2.3ef737bd.chunk.js.map",
-    "static/js/3.c85f9265.chunk.js": "/ganho-ganho/static/js/3.c85f9265.chunk.js",
-    "static/js/3.c85f9265.chunk.js.map": "/ganho-ganho/static/js/3.c85f9265.chunk.js.map",
-    "index.html": "/ganho-ganho/index.html",
-    "static/css/2.630ef54a.chunk.css.map": "/ganho-ganho/static/css/2.630ef54a.chunk.css.map",
-    "static/css/main.383eb4ad.chunk.css.map": "/ganho-ganho/static/css/main.383eb4ad.chunk.css.map",
-    "static/js/2.3ef737bd.chunk.js.LICENSE.txt": "/ganho-ganho/static/js/2.3ef737bd.chunk.js.LICENSE.txt"
+    "main.css": "/GanhoGanho/static/css/main.383eb4ad.chunk.css",
+    "main.js": "/GanhoGanho/static/js/main.7ffdfea3.chunk.js",
+    "main.js.map": "/GanhoGanho/static/js/main.7ffdfea3.chunk.js.map",
+    "runtime-main.js": "/GanhoGanho/static/js/runtime-main.fbd4d8dd.js",
+    "runtime-main.js.map": "/GanhoGanho/static/js/runtime-main.fbd4d8dd.js.map",
+    "static/css/2.630ef54a.chunk.css": "/GanhoGanho/static/css/2.630ef54a.chunk.css",
+    "static/js/2.1e0ff5d6.chunk.js": "/GanhoGanho/static/js/2.1e0ff5d6.chunk.js",
+    "static/js/2.1e0ff5d6.chunk.js.map": "/GanhoGanho/static/js/2.1e0ff5d6.chunk.js.map",
+    "static/js/3.0ea61598.chunk.js": "/GanhoGanho/static/js/3.0ea61598.chunk.js",
+    "static/js/3.0ea61598.chunk.js.map": "/GanhoGanho/static/js/3.0ea61598.chunk.js.map",
+    "index.html": "/GanhoGanho/index.html",
+    "static/css/2.630ef54a.chunk.css.map": "/GanhoGanho/static/css/2.630ef54a.chunk.css.map",
+    "static/css/main.383eb4ad.chunk.css.map": "/GanhoGanho/static/css/main.383eb4ad.chunk.css.map",
+    "static/js/2.1e0ff5d6.chunk.js.LICENSE.txt": "/GanhoGanho/static/js/2.1e0ff5d6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b651d20d.js",
+    "static/js/runtime-main.fbd4d8dd.js",
     "static/css/2.630ef54a.chunk.css",
-    "static/js/2.3ef737bd.chunk.js",
+    "static/js/2.1e0ff5d6.chunk.js",
     "static/css/main.383eb4ad.chunk.css",
-    "static/js/main.7470db92.chunk.js"
+    "static/js/main.7ffdfea3.chunk.js"
   ]
 }
