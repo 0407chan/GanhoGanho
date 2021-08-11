@@ -1,12 +1,15 @@
 {
-  "name": "ganho-ganho",
+  "name": "GanhoGanho",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://0407chan.github.io/GanhoGanho",
   "scripts": {
     "dev": "BROWSER=none env-cmd -f .env craco start",
-    "start": "BROWSER=none react-scripts start",
-    "build": "BROWSER=none react-scripts build",
-    "test": "BROWSER=none react-scripts test"
+    "start": "BROWSER=none craco start",
+    "build": "BROWSER=none craco build",
+    "test": "BROWSER=none craco test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -42,7 +45,8 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3"
   },
   "eslintConfig": {
     "extends": [
