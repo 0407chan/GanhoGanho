@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({
         <S.CalendarButton onClick={onToday}>오늘</S.CalendarButton>
       </S.HeaderCenter>
       <S.HeaderLeft>
-        <S.ConfirmButton type="primary" size="large">
+        <S.ConfirmButton type="primary" size="large" disabled>
           근무표 생성하기!
         </S.ConfirmButton>
       </S.HeaderLeft>
