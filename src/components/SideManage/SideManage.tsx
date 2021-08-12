@@ -16,6 +16,7 @@ const SideManage: React.FC<EditorProps> = ({
 }) => {
   return (
     <S.Container>
+      <S.FormLabel>근무자</S.FormLabel>
       <S.UserBlockWrapper>
         {userList.map((user, index) => {
           return (
