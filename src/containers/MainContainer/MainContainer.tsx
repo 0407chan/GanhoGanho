@@ -3,7 +3,7 @@ import Editor from '@/components/Editor'
 import Header from '@/components/Header'
 import SideManage from '@/components/SideManage'
 import { addMonths, subMonths } from 'date-fns'
-import { Moment } from 'moment'
+import moment, { Moment } from 'moment'
 import React, { useState } from 'react'
 import * as S from './style'
 
@@ -15,31 +15,31 @@ export type User = {
 const initUserList: User[] = [
   {
     name: '피카츄',
-    offDate: []
+    offDate: [moment('2021-08-01'), moment('2021-08-11'), moment('2021-08-21')]
   },
   {
     name: '라이츄',
-    offDate: []
+    offDate: [moment('2021-08-24'), moment('2021-08-03'), moment('2021-08-18')]
   },
   {
     name: '파이리',
-    offDate: []
+    offDate: [moment('2021-08-09'), moment('2021-08-11'), moment('2021-08-20')]
   },
   {
     name: '꼬부기',
-    offDate: []
+    offDate: [moment('2021-08-05'), moment('2021-08-13'), moment('2021-08-26')]
   },
   {
     name: '버터플',
-    offDate: []
+    offDate: [moment('2021-08-03'), moment('2021-08-16'), moment('2021-08-24')]
   },
   {
     name: '야도란',
-    offDate: []
+    offDate: [moment('2021-08-07'), moment('2021-08-19'), moment('2021-08-21')]
   },
   {
     name: '피죤투',
-    offDate: []
+    offDate: [moment('2021-08-05'), moment('2021-08-23'), moment('2021-08-31')]
   },
   {
     name: '또가스',
@@ -77,11 +77,17 @@ const MainContainer: React.FC = () => {
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
         />
-        <Calendar currentDate={currentDate} />
+        <Calendar
+          currentDate={currentDate}
+          userList={userList}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
         <Editor
           currentUser={currentUser}
-          setUserList={setUserList}
           setCurrentUser={setCurrentUser}
+          userList={userList}
+          setUserList={setUserList}
         />
       </S.ContentWrapper>
     </S.Container>

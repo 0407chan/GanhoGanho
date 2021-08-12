@@ -1,20 +1,35 @@
 import { User } from '@/containers/MainContainer/MainContainer'
-import moment from 'moment'
+import moment, { Moment } from 'moment'
 import React from 'react'
 import * as S from './style'
 
 type EditorProps = {
   currentUser: User | undefined
-  setUserList: React.Dispatch<React.SetStateAction<User[]>>
   setCurrentUser: React.Dispatch<React.SetStateAction<User | undefined>>
+  userList: User[]
+  setUserList: React.Dispatch<React.SetStateAction<User[]>>
 }
+
+const MAX_OFF_NUM = 12
 const Editor: React.FC<EditorProps> = ({
   currentUser,
-  setUserList,
-  setCurrentUser
+  setCurrentUser,
+  userList,
+  setUserList
 }) => {
   if (!currentUser) return null
 
+  const isInOffDate = (currentDate: Moment) => {
+    const existDate = currentUser.offDate.find((date) => {
+      return (
+        date && date.format('yyyy-MM-DD') === currentDate.format('yyyy-MM-DD')
+      )
+    })
+    if (existDate) {
+      return true
+    }
+    return false
+  }
   const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
     const newUser = {
@@ -59,7 +74,7 @@ const Editor: React.FC<EditorProps> = ({
   const onAddDate = () => {
     const newUser: User = {
       ...currentUser,
-      offDate: [...currentUser.offDate, moment()]
+      offDate: [...currentUser.offDate, null]
     }
 
     setCurrentUser(newUser)
@@ -94,10 +109,15 @@ const Editor: React.FC<EditorProps> = ({
   }
   return (
     <S.Container>
-      <div>에디터 입니다</div>
       <S.FormWrapper>
-        <S.FormLabel>이름</S.FormLabel>
-        <S.FormInput value={currentUser?.name} onChange={onNameChange} />
+        <S.Horizontal
+          style={{
+            marginBottom: 8
+          }}
+        >
+          <S.FormLabel>이름</S.FormLabel>
+        </S.Horizontal>
+        <S.FormInput value={currentUser.name} onChange={onNameChange} />
       </S.FormWrapper>
       <S.FormWrapper>
         <S.Horizontal
@@ -106,16 +126,28 @@ const Editor: React.FC<EditorProps> = ({
           }}
         >
           <S.FormLabel>날짜</S.FormLabel>
-          <S.FormButton onClick={onAddDate} size="small">
+          <S.FormButton
+            disabled={currentUser.offDate.length >= MAX_OFF_NUM}
+            onClick={onAddDate}
+            size="small"
+            type="primary"
+          >
             추가
           </S.FormButton>
         </S.Horizontal>
-        {currentUser?.offDate.map((date, index) => {
+        {currentUser.offDate.map((date, index) => {
           return (
             <S.Horizontal>
               <S.FormDatePicker
                 key={`${date?.format('yyyy-MM-DD')}-${index}`}
                 value={date}
+                disabledDate={(current) => {
+                  return (
+                    current < moment().startOf('month') ||
+                    current > moment().endOf('month') ||
+                    isInOffDate(current)
+                  )
+                }}
                 onChange={(value) => {
                   return onDateChange(value, index)
                 }}

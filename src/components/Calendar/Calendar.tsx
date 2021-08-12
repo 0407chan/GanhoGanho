@@ -1,3 +1,4 @@
+import { User } from '@/containers/MainContainer/MainContainer'
 import {
   eachDayOfInterval,
   eachWeekOfInterval,
@@ -7,15 +8,41 @@ import {
   startOfMonth,
   startOfWeek
 } from 'date-fns'
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
+import DateBlock from './DateBlock'
 import * as S from './style'
 
 type CanlendarProps = {
   currentDate: Date
+  currentUser?: User
+  userList: User[]
+  setCurrentUser: React.Dispatch<React.SetStateAction<User | undefined>>
 }
-const Calendar: React.FC<CanlendarProps> = ({ currentDate }) => {
+const YYYYMMDD = 'yyyy-MM-DD'
+const Calendar: React.FC<CanlendarProps> = ({
+  currentDate,
+  userList,
+  currentUser,
+  setCurrentUser
+}) => {
   const [dayList, setDayList] = useState<Date[][]>([])
 
+  const getCurrentUsers = (currDate: Date) => {
+    const result: User[] = []
+    const userSet = new Set<User>()
+    userList.forEach((user) => {
+      user.offDate.forEach((date) => {
+        if (date?.format(YYYYMMDD) === moment(currDate).format(YYYYMMDD)) {
+          userSet.add(user)
+        }
+      })
+    })
+    userSet.forEach((value) => {
+      result.push(value)
+    })
+    return result
+  }
   const getCalendar = (newDate: Date) => {
     const date = newDate
     const matrix = eachWeekOfInterval(
@@ -56,14 +83,6 @@ const Calendar: React.FC<CanlendarProps> = ({ currentDate }) => {
     return result
   }
 
-  const getBlockDateFormat = (day: Date) => {
-    let result = 'd'
-
-    if (format(day, 'd') === '1') {
-      result = 'M월 d일'
-    }
-    return result
-  }
   useEffect(() => {
     setDayList(getCalendar(currentDate))
   }, [currentDate])
@@ -88,11 +107,16 @@ const Calendar: React.FC<CanlendarProps> = ({ currentDate }) => {
           <S.WeekWrapper>
             {week.map((day, dayIndex) => {
               const newClassName = getBlockClassName(day, dayIndex)
-              const dateFormat = getBlockDateFormat(day)
+              const currentUserList = getCurrentUsers(day)
               return (
-                <S.DayBlock key={day.toString()} className={newClassName}>
-                  <div className="block-label">{format(day, dateFormat)}</div>
-                </S.DayBlock>
+                <DateBlock
+                  key={day.toString()}
+                  currentDate={day}
+                  setCurrentUser={setCurrentUser}
+                  currentUser={currentUser}
+                  userList={currentUserList}
+                  className={newClassName}
+                />
               )
             })}
           </S.WeekWrapper>
