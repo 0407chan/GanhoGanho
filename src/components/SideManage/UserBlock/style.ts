@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease, background-color 0.2s ease;
   overflow-x: hidden;
   cursor: pointer;
   &:hover {
@@ -36,11 +36,17 @@ export const OffDateWrapper = styled.div`
   align-items: center;
   max-width: 100px;
 `
-export const OffDate = styled.div`
+export const OffDate = styled.div<{ isDate: boolean }>`
   display: flex;
-  background-color: blue;
   width: 10px;
   height: 10px;
   border-radius: 3px;
   margin: 2px;
+
+  ${(props) => {
+    if (props.isDate) {
+      return `background-color: blue;`
+    }
+    return `background-color: #eeeeee; border: 1px solid blue;`
+  }}
 `

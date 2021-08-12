@@ -19,8 +19,8 @@ const UserBlock: React.FC<UserBlockProps> = ({
       <S.Horizontal>
         <div>{user.name}</div>
         <S.OffDateWrapper>
-          {user.offDate.map(() => {
-            return <S.OffDate />
+          {user.offDate.map((date) => {
+            return <S.OffDate isDate={date !== null} />
           })}
         </S.OffDateWrapper>
       </S.Horizontal>
