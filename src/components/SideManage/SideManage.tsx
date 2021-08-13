@@ -1,7 +1,8 @@
 import { User } from '@/containers/MainContainer/MainContainer'
 import React from 'react'
+import ScheduleWrapper from './ScheduleWrapper'
 import * as S from './style'
-import UserBlock from './UserBlock'
+import UserWrapper from './UserWrapper'
 
 type EditorProps = {
   userList: User[]
@@ -16,21 +17,12 @@ const SideManage: React.FC<EditorProps> = ({
 }) => {
   return (
     <S.Container>
-      <S.FormLabel>근무자</S.FormLabel>
-      <S.UserBlockWrapper>
-        {userList.map((user, index) => {
-          return (
-            <UserBlock
-              key={`${user.name}-${index}`}
-              user={user}
-              onClick={() => {
-                setCurrentUser(user)
-              }}
-              isCurrentUser={currentUser?.name === user.name}
-            />
-          )
-        })}
-      </S.UserBlockWrapper>
+      <UserWrapper
+        userList={userList}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
+      <ScheduleWrapper />
     </S.Container>
   )
 }
