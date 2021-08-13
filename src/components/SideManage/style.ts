@@ -5,8 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  height: 100%;
-  padding: 20px;
+  height: fit-content;
   background-color: #585858b8;
 
   transition: filter 0.2s ease;
